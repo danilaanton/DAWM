@@ -1,0 +1,6 @@
+{
+    "/api/*": {
+      "target": "https://dawm-1b7fb-default-rtdb.firebaseio.com/images",
+      "secure": false
+    }
+  }

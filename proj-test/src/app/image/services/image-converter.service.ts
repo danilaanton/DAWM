@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Buffer } from 'buffer';
 
 @Injectable({
   providedIn: 'root',
@@ -41,11 +42,15 @@ export class ImageConverterService {
   }
 
   toFile(dataUrl: string, filename: string): File {
+    const format = dataUrl.substring(
+      dataUrl.indexOf('/') + 1,
+      dataUrl.indexOf(';base64')
+    );
     const arr = dataUrl.split(',');
     const mimeMatch = arr[0].match(/:(.*?);/);
     const mime = mimeMatch ? mimeMatch[1] : '';
     const bstr = Buffer.from(arr[1], 'base64');
     const u8arr = new Uint8Array(bstr);
-    return new File([u8arr], filename, { type: mime });
+    return new File([u8arr], (filename = '.' + format), { type: mime });
   }
 }
