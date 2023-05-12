@@ -1,0 +1,93 @@
+.card{
+    color: #fff;
+    width: 500px;
+    margin: 5px;
+    min-height: 600px;
+    background-color: #000;
+    border-style: solid;
+    border-color: #363636;
+    border-width: 1px;
+    .head{
+        height: 50px;
+        width: auto;
+        padding: 6px 10px;
+        line-height: 10px;
+        button{
+            height: 20px;
+            width: 50px;
+            font-size: 10px;
+        }
+    }
+    .content{
+        height:auto;
+        width: auto;
+    }
+    .base{
+        height: 50px;
+        width: auto;
+    }
+    hr{
+        color: #363636;
+    }
+}
+
+.profile {
+    overflow: hidden; /* to make sure the profile photo stays within the div */
+}
+  
+  .profile-photo {
+    display: block;
+    float: left;
+    width: 40px; /* adjust size as needed */
+    height: 40px;
+    border-radius: 50%; /* to make it circular */
+    object-fit: cover; /* to make sure the photo fills the circle */
+    margin-right: 10px; /* to add some space between the photo and the text */
+}
+
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    background-color: black;
+  }
+  
+  .loading-wave {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin: 0 10px;
+    animation: loading 1s ease-in-out infinite;
+  }
+  
+  .loading-wave:nth-child(1) {
+    background-color: #cccccc;
+    animation-delay: -0.32s;
+  }
+  
+  .loading-wave:nth-child(2) {
+    background-color: #cccccc;
+    animation-delay: -0.16s;
+  }
+  
+  .loading-wave:nth-child(3) {
+    background-color: #cccccc;
+    animation-delay: 0s;
+  }
+  
+  @keyframes loading {
+    0% {
+      transform: scale(0);
+      opacity: 0.3;
+    }
+    50% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(0);
+      opacity: 0.3;
+    }
+  }

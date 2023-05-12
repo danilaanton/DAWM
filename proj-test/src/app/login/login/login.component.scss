@@ -1,0 +1,44 @@
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.login-card{
+    height: 350px;
+    width: 350px;
+    margin-top: 80px;
+    background-color: #000;
+    border-style: solid;
+    border-color: #363636;
+    border-width: 1px;
+    border-radius: 10px;
+}
+
+.login-button{
+    width: 150px;
+}
+
+.unitbv-logo{
+    height: 150px;
+    margin-top: 20px;
+}
+
+.input-field-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.input-field{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 300px;
+    text-align: center;
+}

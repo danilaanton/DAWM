@@ -15,6 +15,7 @@ export class AppComponent {
   title = 'proj-test';
   constructor(private s: ImageConverterService, private c: ImageCrudService) {
     ////FILE TO TEST REQUESTS
+    /*
     from(
       s.toBase64(
         'https://upload.wikimedia.org/wikipedia/commons/e/e7/Everest_North_Face_toward_Base_Camp_Tibet_Luca_Galuzzi_2006.jpg'
@@ -71,6 +72,6 @@ export class AppComponent {
         return throwError(error);
       })
     ).subscribe();
-    
+    */
   }
 }
