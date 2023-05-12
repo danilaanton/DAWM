@@ -1,0 +1,22 @@
+.container{
+    width: 500px;
+    height: 60px;
+    border-style: solid;
+    border-color: #363636;
+    border-width: 1px;
+}
+
+.profile {
+    overflow: hidden;
+}
+  
+  .profile-photo {
+    display: block;
+    float: left;
+    width: 40px; 
+    height: 40px;
+    border-radius: 50%; 
+    object-fit: cover; 
+    margin-left: 140px;
+    margin-top: 10px;
+}

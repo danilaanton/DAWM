@@ -1,0 +1,140 @@
+.sidenav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #000;
+    border-style: solid;
+    border-color: #363636;
+    border-width: 1px;
+    hr{
+        margin-left: 20px;
+        margin-right: 20px;
+        color: #363636;
+    }
+  }
+
+  .logo-container{
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    margin-left: 20px;
+    text-align: center;
+    flex-direction: row;
+    margin-top: 20px;
+    font-family: cursive;
+    margin-bottom: 20px;
+    user-select: none;
+  }
+
+  .button-container{
+    margin-top: 10px;
+    margin-left: 5px;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    flex-direction: column;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    .icon{
+        width: 25px;
+    }
+  }
+
+  .invisible-text{
+    color: rgba(0, 0, 0, 0);
+    user-select: none;
+    width: 80px;
+    transition: color 0.1s ease-in-out, width 0.5s ease-in-out;
+  }
+  
+  .visible-text{
+    color: rgba(255, 255, 255, 1);
+    user-select: auto;
+    width: 220px;
+    transition: color 2s, width 0.5s ease-in-out;
+  }
+
+  .big-logo{
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+    transition: width 0.5s, height 0.5s;
+  }
+
+  .small-logo{
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+    transition: width 0.5s, height 0.5s;
+  }
+
+
+  .nav-button{
+    user-select: none;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    border-radius: 15px;
+    background-color: #000;
+    border: #000;
+    text-align: center;
+    padding: 10px;
+    margin: 2px;
+    padding: 20px;
+    p{
+        margin-top: 15px;
+        margin-left: 20px;
+    }
+  }
+
+  .long-button{
+    width: 180px;
+    transition: width 0.5s;
+  }
+
+  .short-button{
+    width: 80px;
+    transition: width 0.5s;
+  }
+  
+  .nav-button > * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }  
+
+  .nav-button:hover{
+    background-color:#101010;
+  }
+
+  .hr-container{
+    text-align: left;
+  }
+
+  .closed-search{
+    width: 100px; 
+    height: 100%; 
+    position: fixed;
+    transition: width 0.5s ease-in-out;
+    background-color: black;
+    margin-left: 0;
+    border-style: solid;
+    border-color: #363636;
+    border-width: 1px;
+    z-index: 2;
+  }
+
+  .open-search{
+    width: 400px; 
+    height: 100%; 
+    position: fixed;
+    z-index: 2;
+    transition: width 0.5s ease-in-out;
+    background-color: black;
+    margin-left: 0;
+    border-style: solid;
+    border-color: #363636;
+    border-width: 1px;
+    z-index: 2;
+  }

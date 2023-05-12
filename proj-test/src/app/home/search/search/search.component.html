@@ -1,0 +1,14 @@
+<div class="all-container">
+    <div class="search-and-select">
+        <input class="searchbar" nz-input placeholder="search..."/>
+        <select class="select-target">
+            <option value="account">Account</option>
+            <option value="photo_tag">Hashtag</option>
+        </select>
+    </div>
+    <div style="margin-top: 20px;">
+        <div *ngFor="let result of results">
+            <app-result></app-result>
+        </div>
+    </div>
+</div>

@@ -21,28 +21,32 @@
     .content{
         height:auto;
         width: auto;
+        border-style: solid;
+        border-color: #363636;
+        border-width: 1px;
+        margin-top: 7px;
     }
     .base{
         height: 50px;
-        width: auto;
-    }
-    hr{
-        color: #363636;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 10px;
     }
 }
 
 .profile {
-    overflow: hidden; /* to make sure the profile photo stays within the div */
+    overflow: hidden;
 }
   
   .profile-photo {
     display: block;
     float: left;
-    width: 40px; /* adjust size as needed */
+    width: 40px; 
     height: 40px;
-    border-radius: 50%; /* to make it circular */
-    object-fit: cover; /* to make sure the photo fills the circle */
-    margin-right: 10px; /* to add some space between the photo and the text */
+    border-radius: 50%; 
+    object-fit: cover; 
+    margin-right: 10px;
 }
 
 .loading-container {
@@ -90,4 +94,35 @@
       transform: scale(0);
       opacity: 0.3;
     }
+  }
+  
+  .left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 50px;
+  }
+  
+  .right {
+    height: 100%;
+    width: 50px;
+    margin-left: auto;
+  }
+
+  .interaction-button{
+    height: 50px;
+    width : 50px;
+    background-color: #000;
+    border-color: #000;
+    padding: 10px;
+  }
+
+  .interaction-button:hover{
+    background-color: #121212;
+  }
+
+  .icon{
+    height: 100%;
+    width: 100%;
   }

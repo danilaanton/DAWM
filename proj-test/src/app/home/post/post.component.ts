@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./post.component.scss']
 })
 export class PostComponent {
-
+  isExtended : boolean = false;
 }
