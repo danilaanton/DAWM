@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NzButtonModule } from 'ng-zorro-antd/button'; 
 import { HomeModule } from './home/home.module';
+import { environment } from '../environments/environment';
 
 registerLocaleData(en);
 
@@ -30,7 +31,7 @@ registerLocaleData(en);
     FormsModule,
     BrowserAnimationsModule,
     NzButtonModule,
-    HomeModule
+    HomeModule,
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US }
