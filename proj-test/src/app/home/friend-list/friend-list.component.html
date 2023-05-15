@@ -1,0 +1,14 @@
+<div class="all-container">
+    Your Follows
+    <hr>
+    <div *ngIf="follows.length > 0">
+        <div *ngFor="let follow of follows">
+            <div class = "follow-container">
+
+            </div>
+        </div>
+    </div>
+    <div style="color : #363636;" *ngIf="follows.length == 0">
+        You don't<br>follow anyone<br>yet.
+    </div>
+</div>

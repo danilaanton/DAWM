@@ -1,5 +1,6 @@
 <app-sidenav></app-sidenav>
-<div class="post-container">
+<app-friend-list></app-friend-list>
+<div class="post-container" #containerRef>
     <div *ngFor="let card of cards">
         <app-post></app-post>
     </div>

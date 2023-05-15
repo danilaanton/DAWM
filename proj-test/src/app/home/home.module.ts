@@ -6,12 +6,14 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { PostComponent } from './post/post.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { SearchModule } from './search/search.module';
+import { FriendListComponent } from './friend-list/friend-list.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     PostComponent,
-    SidenavComponent
+    SidenavComponent,
+    FriendListComponent
   ],
   imports: [
     CommonModule,
