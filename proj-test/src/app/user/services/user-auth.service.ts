@@ -67,13 +67,13 @@ export class UserAuthService {
         const uid = result.user.uid;
         const user: User = {
           avatar64Data: '',
-          name: result.user.displayName || '',
+          name: name,
           email: result.user.email || '',
           likedImages: [],
           likedUsers: [],
         };
         return this.userCrudService.addUser(uid, user).subscribe(() => {
-          this.router.navigate(['home']);
+          this.router.navigate(['login']);
         });
       })
       .catch((error) => {
@@ -81,7 +81,7 @@ export class UserAuthService {
         location.reload();
         localStorage.setItem(
           'authErrorMessage',
-          'Sign-in failed. Please try again.'
+          'Sign-up failed. Make sure email is valid and password is at least 6 characters long.'
         );
       });
   }

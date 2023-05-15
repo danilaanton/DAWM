@@ -1,1 +1,32 @@
-<p>register works!</p>
+<div class = "login-container">
+    <div class = "login-card">
+        <img class = "unitbv-logo" src="https://www.unitbv.ro/images/Logo-UT-s.png">
+        <form nz-form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="input-field-container">
+            <nz-form-item>
+                <nz-form-control nzErrorTip="Please input your email.">
+                    <input id = "email" formControlName="email" class = "input-field" nz-input placeholder="Email"/>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control nzErrorTip="Please input your password. Must be at least 6 characters long.">
+                    <input id = "password" formControlName="password" class = "input-field" type="password" nz-input placeholder="Password"/>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control nzErrorTip="Password does not match.">
+                    <input id = "checkPassword" formControlName="checkPassword" class = "input-field" type="password" nz-input placeholder="Confirm password"/>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control nzErrorTip="Please input your name.">
+                    <input id = "name" formControlName="name" class = "input-field" type="text" nz-input placeholder="Username"/>
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+        </form>
+
+        <button class = "login-button" nz-button nzType="primary" (click)="onSubmit()" routerLink="home">Register</button>
+        <p class = "error-text">{{error}}</p>
+    </div>
+</div>

@@ -4,7 +4,7 @@
         <form nz-form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="input-field-container">
             <nz-form-item>
-                <nz-form-control nzErrorTip="Please input your email.">
+                <nz-form-control nzErrorTip="Please input a valid email.">
                     <input id = "email" formControlName="email" class = "input-field" nz-input placeholder="Email"/>
                 </nz-form-control>
             </nz-form-item>
@@ -16,7 +16,9 @@
         </div>
         </form>
 
-        <button class = "login-button" nz-button nzType="primary" (click)="onSubmit()" routerLink="home">Log In</button>
+        <button class = "login-button" nz-button nzType="primary" (click)="onSubmit()">Log In</button>
+        <br>
+        <button class = "login-button" nz-button nzType="primary" (click)="onRegister()">Register</button>
         <p class = "error-text">{{error}}</p>
     </div>
 </div>

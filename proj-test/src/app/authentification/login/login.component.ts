@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
-import {
-  FormGroup,
-  FormControl,
-  Validators,
-  FormBuilder,
-} from '@angular/forms';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserAuthService } from 'src/app/user/services/user-auth.service';
 
 @Component({
@@ -18,7 +14,8 @@ export class LoginComponent {
 
   constructor(
     private userAuthService: UserAuthService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -50,5 +47,9 @@ export class LoginComponent {
           console.log(error);
         });
     }
+  }
+
+  onRegister() {
+    this.router.navigate(['register']);
   }
 }
