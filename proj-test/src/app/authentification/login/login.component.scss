@@ -7,7 +7,7 @@
 }
 
 .login-card{
-    height: 350px;
+    height: 450px;
     width: 350px;
     margin-top: 80px;
     background-color: #000;
@@ -23,6 +23,11 @@
 
 .unitbv-logo{
     height: 150px;
+    margin-top: 30px;
+}
+
+.error-text{
+    color: white;
     margin-top: 20px;
 }
 
@@ -40,5 +45,4 @@
     margin-top: 5px;
     margin-bottom: 5px;
     width: 300px;
-    text-align: center;
 }

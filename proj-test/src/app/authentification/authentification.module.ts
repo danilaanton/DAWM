@@ -3,15 +3,22 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { NzButtonModule } from 'ng-zorro-antd/button'; 
 import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,
     NzButtonModule,
-    NzInputModule
+    NzInputModule,
+    NzFormModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
-export class LoginModule { }
+export class AuthentificationModule { }

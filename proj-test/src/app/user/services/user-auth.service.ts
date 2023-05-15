@@ -10,6 +10,7 @@ import {
   createUserWithEmailAndPassword,
 } from 'firebase/auth';
 import { environment } from 'src/environments/environment';
+import { Console } from 'console';
 
 const auth = getAuth(firebase.initializeApp(environment.firebaseConfig));
 
@@ -40,40 +41,49 @@ export class UserAuthService {
     });
   }
 
-  async SignIn(email: string, password: string) {
-    try {
-      const result = await signInWithEmailAndPassword(auth, email, password);
-      if (result.user) {
-        this.router.navigate(['home']);
-      }
-    } catch (error) {
-      window.alert((error as any).message);
-    }
+  SignIn(email: string, password: string): Promise<any> {
+    return signInWithEmailAndPassword(auth, email, password)
+      .then((result) => {
+        if (result.user) {
+          this.router.navigate(['home']);
+        }
+      })
+      .catch((error) => {
+        console.log((error as any).message);
+        location.reload();
+        localStorage.setItem(
+          'authErrorMessage',
+          'Sign-in failed. Please try again.'
+        );
+      });
   }
 
-  async SignUp(email: string, password: string, name: string) {
-    try {
-      const result = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      if (!result.user) {
-        return;
-      }
-      const uid = result.user.uid;
-      const user: User = {
-        avatar64Data: '',
-        name: result.user.displayName || '',
-        email: result.user.email || '',
-        likedImages: [],
-        likedUsers: [],
-      };
-      await this.userCrudService.addUser(uid, user);
-      this.router.navigate(['home']);
-    } catch (error) {
-      window.alert((error as any).message);
-    }
+  SignUp(email: string, password: string, name: string): Promise<any> {
+    return createUserWithEmailAndPassword(auth, email, password)
+      .then((result) => {
+        if (!result.user) {
+          return;
+        }
+        const uid = result.user.uid;
+        const user: User = {
+          avatar64Data: '',
+          name: result.user.displayName || '',
+          email: result.user.email || '',
+          likedImages: [],
+          likedUsers: [],
+        };
+        return this.userCrudService.addUser(uid, user).subscribe(() => {
+          this.router.navigate(['home']);
+        });
+      })
+      .catch((error) => {
+        console.log((error as any).message);
+        location.reload();
+        localStorage.setItem(
+          'authErrorMessage',
+          'Sign-in failed. Please try again.'
+        );
+      });
   }
 
   get isLoggedIn(): boolean {
