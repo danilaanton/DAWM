@@ -21,3 +21,19 @@
       transform: rotate(360deg);
     }
   }
+
+  .post-box-unexpanded{
+    height: 100px;
+    width: 500px;
+    border-style: solid;
+    border-color: #363636;
+    background-color: #000;
+    border-width: 1px;
+    text-align: center;
+    font-family: cursive;
+    font-size: 15px;
+    color: white;
+    line-height: 15px;
+    padding: 15px;
+    margin-top: 5px;
+  }

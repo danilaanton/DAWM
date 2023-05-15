@@ -1,0 +1,46 @@
+.upload-widget {
+    background-color: black;
+    width: 480px;
+    margin: 10px;
+    padding: 20px;
+    border: 1px dashed #363636;
+    border-radius: 5px;
+  }
+  
+  .drop-area {
+    height: 100px;
+    border: 1px dashed #363636;
+    border-radius: 5px;
+    text-align: center;
+    padding: 20px;
+    color: #363636;
+    font-family: cursive;
+    padding: 40px;
+  }
+  
+  
+  .description {
+    background-color: #363636;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    resize: vertical;
+    border: solid 1px #363636;
+    border-radius: 5px;
+    color: white;
+  }
+  
+  .upload-button {
+    height: 30px;
+    font-size: 10px;
+    margin: 2px;
+  }
+
+  .cancel-button{
+    height: 30px;
+    font-size: 10px;
+    margin: 2px;
+    background-color: rgb(183, 84, 84);
+    border-color: rgb(183, 84, 84);
+  }
+  

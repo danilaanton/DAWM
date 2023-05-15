@@ -7,8 +7,9 @@ import { StylingService } from '../services/styling.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  isCollapsed = false;
-  atLeftMargin = false;
+  isCollapsed : boolean = false;
+  atLeftMargin : boolean = false;
+  uploadOpen : boolean = false;
   cards : any = [{}, {}];
   containerElement : any = null;
 
@@ -24,5 +25,9 @@ export class HomeComponent {
   @HostListener('window:resize', [])
   onWindowResize() {
     this.stylingService.stylePosts(this.containerElement);
+  }
+
+  uploadPressed(){
+    this.uploadOpen = true;
   }
 }

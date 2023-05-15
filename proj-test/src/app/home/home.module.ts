@@ -7,6 +7,7 @@ import { PostComponent } from './post/post.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { SearchModule } from './search/search.module';
 import { FriendListComponent } from './friend-list/friend-list.component';
+import { UploadModule } from '../upload/upload.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FriendListComponent } from './friend-list/friend-list.component';
     CommonModule,
     NzButtonModule,
     NzIconModule,
-    SearchModule
+    SearchModule,
+    UploadModule
   ]
 })
 export class HomeModule { }

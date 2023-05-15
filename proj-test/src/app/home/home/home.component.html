@@ -1,6 +1,13 @@
 <app-sidenav></app-sidenav>
 <app-friend-list></app-friend-list>
 <div class="post-container" #containerRef>
+    <div *ngIf="!uploadOpen" class="post-box-unexpanded">
+        <p>Amaze the world with a new photo!</p>
+        <button nz-button nzType="primary" (click)="uploadPressed()">Upload</button>
+    </div>
+    <div *ngIf="uploadOpen">
+        <app-upload></app-upload>
+    </div>
     <div *ngFor="let card of cards">
         <app-post></app-post>
     </div>
