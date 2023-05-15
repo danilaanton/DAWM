@@ -8,6 +8,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { SearchModule } from './search/search.module';
 import { FriendListComponent } from './friend-list/friend-list.component';
 import { UploadModule } from '../upload/upload.module';
+import { NzModalModule } from 'ng-zorro-antd/modal';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { UploadModule } from '../upload/upload.module';
     NzButtonModule,
     NzIconModule,
     SearchModule,
-    UploadModule
+    UploadModule,
+    NzModalModule
   ]
 })
 export class HomeModule { }

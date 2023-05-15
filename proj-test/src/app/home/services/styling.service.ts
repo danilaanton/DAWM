@@ -16,6 +16,7 @@ export class StylingService {
       containerElement.style.paddingLeft = '235px';
       this.isAtLeftMargin = true;
       }
+      return true;
     } else {
       if(this.isAtLeftMargin){
       containerElement.style.justifyContent = 'center';
@@ -23,6 +24,7 @@ export class StylingService {
       containerElement.style.paddingLeft = '0px';
       this.isAtLeftMargin = false;
       }
+      return false;
     }
   }
 

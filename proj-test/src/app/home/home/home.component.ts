@@ -19,12 +19,12 @@ export class HomeComponent {
   ngAfterViewInit(){
     console.log('we now init');
     this.containerElement = this.containerRef.nativeElement as HTMLElement;
-    this.stylingService.stylePosts(this.containerElement);
+    this.atLeftMargin = this.stylingService.stylePosts(this.containerElement);
   }
 
   @HostListener('window:resize', [])
   onWindowResize() {
-    this.stylingService.stylePosts(this.containerElement);
+    this.atLeftMargin = this.stylingService.stylePosts(this.containerElement);
   }
 
   uploadPressed(){

@@ -12,10 +12,8 @@
     border: 1px dashed #363636;
     border-radius: 5px;
     text-align: center;
-    padding: 20px;
     color: #363636;
     font-family: cursive;
-    padding: 40px;
   }
   
   
@@ -42,5 +40,15 @@
     margin: 2px;
     background-color: rgb(183, 84, 84);
     border-color: rgb(183, 84, 84);
+  }
+
+  .active-drop-area{
+    height:  100%;
+    width: 100%;
+    padding: 40px;
+  }
+
+  .preview-img{
+    height: 300px;
   }
   

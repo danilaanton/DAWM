@@ -126,3 +126,24 @@
     height: 100%;
     width: 100%;
   }
+
+  .likes{
+    margin: 5px;
+    user-select: none;
+  }
+
+  .likes:hover{
+    cursor: pointer;
+  }
+
+  ::ng-deep .ant-modal-content {
+    background-color: black;
+    border: solid #363636 1px;
+    color: white;
+    height: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    text-align: center;
+  }
+  

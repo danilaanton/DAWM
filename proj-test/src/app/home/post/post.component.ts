@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./post.component.scss']
 })
 export class PostComponent {
-  isExtended : boolean = false;
+  modalVisible : boolean = false;
+  showLikers(){
+    this.modalVisible = true;
+  }
+  handleCancel(){
+    this.modalVisible = false;
+  }
+  handleOk(){
+    console.log("pressed ok")
+    this.modalVisible = false;
+  }
 }
