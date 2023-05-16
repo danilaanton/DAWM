@@ -69,8 +69,6 @@ export class UserAuthService {
           avatar64Data: '',
           name: name,
           email: result.user.email || '',
-          likedImages: [],
-          likedUsers: [],
         };
         return this.userCrudService.addUser(uid, user).subscribe(() => {
           this.router.navigate(['login']);
