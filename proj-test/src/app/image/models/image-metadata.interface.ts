@@ -1,6 +1,4 @@
 export interface ImageMetadata {
-    base64Data : string,
+    dataID : string,
     author : string,
-    title : string,
-    description : string
 }

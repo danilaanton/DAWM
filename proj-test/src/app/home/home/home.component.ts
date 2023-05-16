@@ -1,5 +1,8 @@
 import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { StylingService } from '../services/styling.service';
+import { ImageCrudService } from 'src/app/image/services/image-crud.service';
+import { ULikesCrudService } from 'src/app/user/services/likes-crud.service';
+import { ImageMetadata } from 'src/app/image/models/image-metadata.interface';
 
 @Component({
   selector: 'app-home',
@@ -10,14 +13,17 @@ export class HomeComponent {
   isCollapsed : boolean = false;
   atLeftMargin : boolean = false;
   uploadOpen : boolean = false;
-  cards : any = [{}, {}];
+  cards : ImageMetadata[] = [];
   containerElement : any = null;
 
-  constructor(private stylingService : StylingService){}
+  constructor(private stylingService : StylingService, private imageCrud : ImageCrudService, private likesCrud : ULikesCrudService){ 
+    imageCrud.getAllMetadata().subscribe(res =>{
+      console.log(res);
+    })
+  }
 
   @ViewChild('containerRef', { static: true }) containerRef!: ElementRef;
   ngAfterViewInit(){
-    console.log('we now init');
     this.containerElement = this.containerRef.nativeElement as HTMLElement;
     this.atLeftMargin = this.stylingService.stylePosts(this.containerElement);
   }

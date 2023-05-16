@@ -1,5 +1,5 @@
 export interface User {
-  avatar64Data: string;
+  avatarID: string;
   name: string;
-  email: string;
+  email: string
 }

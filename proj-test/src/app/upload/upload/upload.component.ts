@@ -1,4 +1,8 @@
-import { Component, ElementRef, HostListener, ViewChild  } from '@angular/core';
+import { Component, ElementRef, ViewChild  } from '@angular/core';
+import { UploadService } from '../services/upload.service'; 
+import { ImageMetadata } from 'src/app/image/models/image-metadata.interface';
+import { ImageData } from 'src/app/image/models/image-data';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-upload',
@@ -11,6 +15,8 @@ export class UploadComponent {
   frameElem : any;
   droppedImage : string | ArrayBuffer | null = null;
   @ViewChild('frameRef', { static: true }) frameRef!: ElementRef;
+
+  constructor(private uploadService : UploadService, private location: Location){}
 
   ngAfterViewInit(){
     this.frameElem = this.frameRef.nativeElement as HTMLElement;
@@ -41,5 +47,22 @@ export class UploadComponent {
       };
       reader.readAsDataURL(file);
     }
+  }
+
+  handleCancel(){
+    //TODO
+  }
+
+  handleChange(){
+    this.droppedImage = null;
+    this.frameElem.style.height = '100px';
+  }
+
+  handleSubmit(){
+    let imageMetaData : ImageMetadata = {dataID : 'placeholder', author : localStorage.getItem('user') as string};
+    let imageData : ImageData = {base64Data : this.droppedImage as string, description : this.description};
+    this.uploadService.addImage(imageMetaData, imageData).subscribe(_ => {
+      window.location.reload();
+    });
   }
 }

@@ -5,7 +5,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { PostComponent } from './post/post.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
-import { SearchModule } from './search/search.module';
+import { SearchModule } from '../search/search.module';
 import { FriendListComponent } from './friend-list/friend-list.component';
 import { UploadModule } from '../upload/upload.module';
 import { NzModalModule } from 'ng-zorro-antd/modal';

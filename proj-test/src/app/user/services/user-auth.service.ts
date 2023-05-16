@@ -66,9 +66,9 @@ export class UserAuthService {
         }
         const uid = result.user.uid;
         const user: User = {
-          avatar64Data: '',
+          avatarID: '',
           name: name,
-          email: result.user.email || '',
+          email: result.user.email || ''
         };
         return this.userCrudService.addUser(uid, user).subscribe(() => {
           this.router.navigate(['login']);

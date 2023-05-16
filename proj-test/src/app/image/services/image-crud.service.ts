@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError } from 'rxjs';
 import { ImageMetadata } from '../models/image-metadata.interface';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { switchMap } from 'rxjs';
 
   
 @Injectable({
@@ -9,19 +10,26 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ImageCrudService {
   private apiUrl = 'https://dawm-1b7fb-default-rtdb.firebaseio.com/images';
-  
 
   constructor(private http: HttpClient) { }
 
-  addImage(image: ImageMetadata): Observable<any> {
-    return this.http.post<ImageMetadata>(`${this.apiUrl}.json`, image);
+  getAllMetadata() : Observable<any> {
+    return this.http.get<ImageMetadata>(`${this.apiUrl}/metadata.json`);
+  }
+
+  addImageMetadata(imageMetadata : ImageMetadata){
+    return this.http.post<ImageMetadata>(`${this.apiUrl}/metadata.json`, imageMetadata);
+  }
+
+  addImageData(imageData : ImageData) : Observable<any>{
+    return this.http.post<ImageMetadata>(`${this.apiUrl}/data.json`, imageData);
   }
 
   getImage(id: string): Observable<ImageMetadata> {
     return this.http.get<ImageMetadata>(`${this.apiUrl}/${id}.json`);
   }
 
-  getAll(id: string): Observable<ImageMetadata> {
+  getAll(): Observable<ImageMetadata> {
     return this.http.get<ImageMetadata>(`${this.apiUrl}.json`);
   }
 
