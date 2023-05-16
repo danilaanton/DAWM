@@ -36,25 +36,21 @@ export class ULikesCrudService {
     return this.http.delete(this.userApiUrl, { params: queryParams });
   }
 
-  countUserLiked(likedUid: string): Observable<number> {
+  getInstancesOfLikedUser(likedUid: string): Observable<any> {
     const params = new HttpParams()
       .set('orderBy', '"likedUid"')
       .set('equalTo', `"${likedUid}"`);
-    return this.http
-      .get<any[]>(this.userApiUrl, { params })
-      .pipe(map((data) => Object.keys(data || {}).length));
+    return this.http.get<any[]>(this.userApiUrl, { params });
   }
 
-  countUserLikes(uid: string): Observable<number> {
+  getInstancesOfLikedUserByUser(uid: string): Observable<any> {
     const params = new HttpParams()
       .set('orderBy', '"uid"')
       .set('"equalTo"', `"${uid}"`);
-    return this.http
-      .get<any[]>(this.userApiUrl, { params })
-      .pipe(map((data) => Object.keys(data || {}).length));
+    return this.http.get<any[]>(this.userApiUrl, { params });
   }
 
-  isUserLiked(uid: string, likedUid: any): Observable<boolean> {
+  isUserLikedByUser(uid: string, likedUid: any): Observable<boolean> {
     const params = new HttpParams()
       .append('orderBy', '"uid"')
       .append('equalTo', `"${uid}"`)
@@ -86,25 +82,23 @@ export class ULikesCrudService {
     return this.http.delete(this.imageApiUrl, { params: queryParams });
   }
 
-  countImageLiked(likedUid: string): Observable<number> {
+  getInstancesOfLikedImage(likedUid: string): Observable<any> {
     const params = new HttpParams()
       .set('orderBy', '"likedUid"')
       .set('equalTo', `"${likedUid}"`);
     return this.http
-      .get<any[]>(this.imageApiUrl, { params })
-      .pipe(map((data) => Object.keys(data || {}).length));
+      .get<any[]>(this.imageApiUrl, { params });
   }
 
-  countImageLikes(uid: string): Observable<number> {
+  getInstancesOfLikedImagesByUser(uid: string): Observable<any> {
     const params = new HttpParams()
       .set('orderBy', '"uid"')
       .set('"equalTo"', `"${uid}"`);
     return this.http
-      .get<any[]>(this.imageApiUrl, { params })
-      .pipe(map((data) => Object.keys(data || {}).length));
+      .get<any[]>(this.imageApiUrl, { params });
   }
 
-  isImageLiked(uid: string, likedUid: any): Observable<boolean> {
+  isImageLikedByUser(uid: string, likedUid: any): Observable<boolean> {
     const params = new HttpParams()
       .append('orderBy', '"uid"')
       .append('equalTo', `"${uid}"`)

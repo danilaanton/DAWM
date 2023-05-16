@@ -1,7 +1,4 @@
-export interface User {
-  avatar64Data: string;
-  name: string;
-  email: string;
-  likedImages: string[];
-  likedUsers: string[];
+export interface LikedUser {
+  uid : string,
+  likedUid : string
 }
