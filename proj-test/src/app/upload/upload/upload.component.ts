@@ -59,7 +59,8 @@ export class UploadComponent {
   }
 
   handleSubmit(){
-    let imageMetaData : ImageMetadata = {dataID : 'placeholder', author : localStorage.getItem('user') as string};
+    const currentDate = new Date();
+    let imageMetaData : ImageMetadata = {dataID : 'placeholder', author : localStorage.getItem('user') as string, dateCreated :  currentDate.toISOString()};
     let imageData : ImageData = {base64Data : this.droppedImage as string, description : this.description};
     this.uploadService.addImage(imageMetaData, imageData).subscribe(_ => {
       window.location.reload();
