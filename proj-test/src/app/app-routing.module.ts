@@ -8,7 +8,7 @@ import { TableComponent } from './table/table.component';
 const routes: Routes = [
   {path : 'login', component : LoginComponent },
   {path : 'register', component : RegisterComponent },
-  {path : 'home', component : HomeComponent },
+  {path : 'home', component : HomeComponent, loadChildren: () => import('./home/home.module').then(m => m.HomeModule)},
   {path: '', redirectTo: 'login', pathMatch : 'full' },
   {path: 'myposts', component : TableComponent }
 ];
