@@ -63,13 +63,13 @@ export class HomeComponent {
 
   loadBatch(){
     let targetIndex = this.loadedImages.length + 2;
-    for(let i=this.loadedImages.length; i<Math.min(this.imageMetadata.length, targetIndex); i++){
+    for(let i=this.loadedImages.length; i<Math.min(this.shownMetadata.length, targetIndex); i++){
       this.loadedImages.push({ base64Data : 'none', description : '', username : 'loading'});
-      this.imageCrud.getData(this.imageMetadata[i].dataID).subscribe(res =>{
+      this.imageCrud.getData(this.shownMetadata[i].dataID).subscribe(res =>{
           this.loadedImages[i].base64Data = res.base64Data;
           this.loadedImages[i].description = res.description;
       });
-      this.userService.getUser(this.imageMetadata[i].author.substring(1, this.imageMetadata[i].author.length - 1)).subscribe(res =>{
+      this.userService.getUser(this.shownMetadata[i].author.substring(1, this.shownMetadata[i].author.length - 1)).subscribe(res =>{
         this.loadedImages[i].username = res.name;
         this.imageCrud.getImage(res.avatarID).subscribe(metadata => {
           if(metadata){
@@ -80,7 +80,7 @@ export class HomeComponent {
         })
       })
     }
-    if(this.loadedImages.length == this.imageMetadata.length){
+    if(this.loadedImages.length == this.shownMetadata.length){
       this.canLoadMore = false;
     }
   }
@@ -96,7 +96,8 @@ export class HomeComponent {
 
   handleFilter(event: string) {
     this.loadedImages = [];
-    this.shownMetadata = this.imageMetadata.filter(image => image.author === event);
+    console.log(event);
+    this.shownMetadata = this.imageMetadata.filter(image => image.author === '"' + event + '"');
     this.loadBatch();
   }
 }
