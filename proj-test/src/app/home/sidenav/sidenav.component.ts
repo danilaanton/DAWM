@@ -1,19 +1,23 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserAuthService } from 'src/app/user/services/user-auth.service';
 
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
-  styleUrls: ['./sidenav.component.scss']
+  styleUrls: ['./sidenav.component.scss'],
 })
 export class SidenavComponent {
-  searchVisible : boolean = false;
-  constructor(private router : Router){}
+  searchVisible: boolean = false;
+  constructor(
+    private router: Router,
+    private userAuthService: UserAuthService
+  ) {}
   @Output() openPost = new EventEmitter();
-  expandSearch(){
+  expandSearch() {
     this.searchVisible = !this.searchVisible;
   }
-  goToPost(){
+  goToPost() {
     const scrollToOptions: ScrollToOptions = {
       top: 0,
       behavior: 'smooth',
@@ -21,8 +25,12 @@ export class SidenavComponent {
     this.openPost.emit();
     window.scrollTo(scrollToOptions);
   }
-  goToTable(){
+  goToTable() {
     console.log('my god');
     this.router.navigate(['myposts']);
+  }
+
+  logOut() {
+    this.userAuthService.SignOut();
   }
 }
