@@ -14,11 +14,10 @@ export class HomeComponent {
   isCollapsed : boolean = false;
   atLeftMargin : boolean = false;
   uploadOpen : boolean = false;
-  canLoadMore : boolean = true;
+  canLoadMore : boolean = false;
   imageMetadata : ImageMetadata[] = [];
   loadedImages : ImageData[] = [];
   containerElement : any = null;
-  fistBatch = true;
 
   constructor(private stylingService : StylingService, private imageCrud : ImageCrudService, private userService : UserCrudService){ }
 
@@ -37,9 +36,10 @@ export class HomeComponent {
             console.log(confirm);
             if(confirm){
               this.imageMetadata.push(res[id] as ImageMetadata);
-              if(this.fistBatch){
-                this.fistBatch = false;
+              if(this.imageMetadata.length == 1){
                 this.loadBatch();
+              }else{
+                this.canLoadMore = true;
               }
             }
           })
@@ -60,10 +60,19 @@ export class HomeComponent {
   loadBatch(){
     let targetIndex = this.loadedImages.length + 2;
     for(let i=this.loadedImages.length; i<Math.min(this.imageMetadata.length, targetIndex); i++){
-      this.loadedImages.push({ base64Data : 'none', description : ''});
+      this.loadedImages.push({ base64Data : 'none', description : '', username : 'loading'});
       this.imageCrud.getData(this.imageMetadata[i].dataID).subscribe(res =>{
           this.loadedImages[i].base64Data = res.base64Data;
+          this.loadedImages[i].description = res.description;
       });
+      this.userService.getUser(this.imageMetadata[i].author.substring(1, this.imageMetadata[i].author.length - 1)).subscribe(res =>{
+        this.loadedImages[i].username = res.name;
+        this.imageCrud.getImage(res.avatarID).subscribe(metadata => {
+          this.imageCrud.getData(metadata.dataID).subscribe(data => {
+            this.loadedImages[i].profilePhoto = data.base64Data;
+          }) 
+        })
+      })
     }
     if(this.loadedImages.length == this.imageMetadata.length){
       this.canLoadMore = false;

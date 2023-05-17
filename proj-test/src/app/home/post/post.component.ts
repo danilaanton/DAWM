@@ -8,6 +8,9 @@ import { Component, Input } from '@angular/core';
 export class PostComponent {
   modalVisible : boolean = false;
   @Input() base64data : string = '';
+  @Input() username : string = '';
+  @Input() description : string = '';
+  @Input() profilePhoto : string = 'none';
   showLikers(){
     this.modalVisible = true;
   }
