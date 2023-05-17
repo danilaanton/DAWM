@@ -70,9 +70,11 @@ export class HomeComponent {
       this.userService.getUser(this.imageMetadata[i].author.substring(1, this.imageMetadata[i].author.length - 1)).subscribe(res =>{
         this.loadedImages[i].username = res.name;
         this.imageCrud.getImage(res.avatarID).subscribe(metadata => {
-          this.imageCrud.getData(metadata.dataID).subscribe(data => {
-            this.loadedImages[i].profilePhoto = data.base64Data;
-          }) 
+          if(metadata){
+            this.imageCrud.getData(metadata.dataID).subscribe(data => {
+              this.loadedImages[i].profilePhoto = data.base64Data;
+            })
+          }
         })
       })
     }

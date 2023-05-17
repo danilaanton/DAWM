@@ -3,8 +3,9 @@
     <hr>
     <div *ngIf="follows.length > 0">
         <div *ngFor="let follow of follows">
-            <div class = "follow-container">
-
+            <div class="follow-container">
+                <img class="profile-picture" [src]="follow.photo!='none'? follow.photo : 'https://isobarscience-1bfd8.kxcdn.com/wp-content/uploads/2020/09/default-profile-picture1.jpg'">
+                <div class="username" [textContent]="follow.username"></div>
             </div>
         </div>
     </div>

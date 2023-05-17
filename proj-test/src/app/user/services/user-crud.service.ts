@@ -31,8 +31,9 @@ export class UserCrudService {
     return this.http.delete(`${this.apiUrl}/follows/${followerId}/${followedId}.json`)
   }
   isFollowing(followerId : string, followedId : string){
-    console.log('follower: ' + followedId);
-    console.log('followed: ' + followedId);
     return this.http.get(`${this.apiUrl}/follows/${followerId}/${followedId}.json`)
+  }
+  getAllUsers(){
+    return this.http.get<User[]>(`${this.apiUrl}/users.json`);
   }
 }

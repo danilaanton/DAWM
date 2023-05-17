@@ -15,6 +15,14 @@
     animation: spin 1s ease-in-out infinite;
     margin-top: 20px;
   }
+
+.shifted-right-wheel{
+  margin-left: 240px
+}
+
+.shifted-right-text{
+  margin-left: 105px
+}
   
   @keyframes spin {
     to {
