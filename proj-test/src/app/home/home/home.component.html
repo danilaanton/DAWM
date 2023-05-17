@@ -8,8 +8,9 @@
     <div *ngIf="uploadOpen">
         <app-upload></app-upload>
     </div>
-    <div *ngFor="let card of cards">
-        <app-post></app-post>
+    <div *ngFor="let post of loadedImages">
+        <app-post [base64data]="post.base64Data"></app-post>
     </div>
-    <div class="loading-wheel"></div>
+    <div *ngIf="canLoadMore" class="loading-wheel"></div>
+    <p *ngIf="!canLoadMore" class="seen-all-message">You've seen it All (✓)</p>
 </div>

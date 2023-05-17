@@ -7,11 +7,12 @@
         </div>
     </div>
     <div class="content">
-        <div class="loading-container">
+        <div *ngIf="base64data == 'none'" class="loading-container">
             <div class="loading-wave"></div>
             <div class="loading-wave"></div>
             <div class="loading-wave"></div>
         </div>
+        <img *ngIf="base64data != 'none'" [src]="base64data" class = "main-photo">
     </div>
     <div class="base">
         <div class="left">

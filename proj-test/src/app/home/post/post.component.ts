@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-post',
@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class PostComponent {
   modalVisible : boolean = false;
+  @Input() base64data : string = '';
   showLikers(){
     this.modalVisible = true;
   }
@@ -14,7 +15,6 @@ export class PostComponent {
     this.modalVisible = false;
   }
   handleOk(){
-    console.log("pressed ok")
     this.modalVisible = false;
   }
 }

@@ -1,3 +1,12 @@
 <div class="container">
-    <img class="profile-photo" src="https://cdn.britannica.com/18/114418-004-2A12F087/Flag-Kosovo.jpg" alt="Profile Photo">
+    <div class="profile">
+      <img class="profile-photo" [src]="(photo != 'none') ? photo : 'https://isobarscience-1bfd8.kxcdn.com/wp-content/uploads/2020/09/default-profile-picture1.jpg'" alt="No photo">
+        <div style="padding-top: 15px; padding-left: 10px;">
+            <p>{{name}}</p>
+        </div>
+    </div>
+    <button nz-button nzType="primary" class="follow-button" style="margin-right: 70px;" (click)="follow()" 
+    [disabled]="!isDecidedIfFollowing" [textContent]="isFollowing? 'Unfollow' : 'Follow'" 
+    [style]="isFollowing? 'background-color : gray; color : white;' : 'background-color : #1890ffl; color : white'"></button>
 </div>
+  

@@ -3,6 +3,7 @@ import { Observable, catchError } from 'rxjs';
 import { ImageMetadata } from '../models/image-metadata.interface';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { switchMap } from 'rxjs';
+import { ImageData } from '../models/image-data';
 
   
 @Injectable({
@@ -39,5 +40,8 @@ export class ImageCrudService {
 
   editImage(id: string, changes: Partial<ImageMetadata>): Observable<any> {
     return this.http.patch(`${this.apiUrl}/${id}.json`, changes);
+  }
+  getData(id : string){
+    return this.http.get<ImageData>(`${this.apiUrl}/data/${id}.json`);
   }
 }

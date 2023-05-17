@@ -1,26 +1,36 @@
-.container{
+.container {
     width: 500px;
     height: 60px;
     border-style: solid;
     border-color: #363636;
     border-width: 1px;
-}
-
-.container:hover{
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 150px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .container:hover {
     background-color: #363636;
-}
-
-.profile {
-    overflow: hidden;
-}
+  }
+  
+  .profile {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
   
   .profile-photo {
-    display: block;
-    float: left;
-    width: 40px; 
+    width: 40px;
     height: 40px;
-    border-radius: 50%; 
-    object-fit: cover; 
-    margin-left: 140px;
-    margin-top: 10px;
-}
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+  
+  .follow-button {
+    margin-left: auto;
+  }
+  

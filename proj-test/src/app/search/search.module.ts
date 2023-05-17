@@ -5,6 +5,7 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { ResultComponent } from './result/result.component';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -12,13 +13,14 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
     ResultComponent
   ],
   imports: [
-    CommonModule
-  ],
-  exports: [
-    SearchComponent,
+    CommonModule,
     NzInputModule,
     NzButtonModule,
-    NzDropDownModule
+    NzDropDownModule,
+    FormsModule
+  ],
+  exports: [
+    SearchComponent
   ]
 })
 export class SearchModule { }
