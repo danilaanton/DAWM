@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ImageConverterService } from 'src/app/image/services/image-converter.service';
 import { ImageCrudService } from 'src/app/image/services/image-crud.service';
 import { UserCrudService } from 'src/app/user/services/user-crud.service';
 
@@ -17,7 +18,7 @@ export class PostComponent {
   @Input() id : string = '';
   likes : number = 0;
   likers : string[] = [];
-  constructor(private imageService : ImageCrudService, private userService : UserCrudService){
+  constructor(private imageService : ImageCrudService, private userService : UserCrudService, private imageConverter : ImageConverterService){
     
   }
   ngOnInit(){
@@ -56,6 +57,15 @@ export class PostComponent {
     this.liked = !this.liked;
   }
   download(){
+    const file = this.imageConverter.toFile(this.base64data, "download");
+    if(!file){
+      return;
+    }
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(file);
+    link.download = file.name;
+    link.target = '_blank';
+    link.click();
     this.imageService.addDownload(this.id);
   }
 }
