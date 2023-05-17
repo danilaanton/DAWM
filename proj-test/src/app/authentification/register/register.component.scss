@@ -1,4 +1,4 @@
-.login-container {
+.register-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -6,19 +6,21 @@
     flex-direction: column;
 }
 
-.login-card{
-    height: 600px;
+.register-card{
+    height: fit-content;
     width: 350px;
     margin-top: 80px;
     background-color: #000;
+    color:white;
     border-style: solid;
     border-color: #363636;
     border-width: 1px;
     border-radius: 10px;
 }
 
-.login-button{
+.register-button{
     width: 150px;
+    margin-bottom: 10px;
 }
 
 .unitbv-logo{
@@ -27,7 +29,6 @@
 }
 
 .error-text{
-    color: white;
     margin-top: 20px;
     padding-left: 10px;
     padding-right: 10px;

@@ -1,5 +1,5 @@
-<div class = "login-container">
-    <div class = "login-card">
+<div class = "register-container">
+    <div class = "register-card">
         <img class = "unitbv-logo" src="https://www.unitbv.ro/images/Logo-UT-s.png">
         <form nz-form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <div class="input-field-container">
@@ -26,7 +26,9 @@
         </div>
         </form>
 
-        <button class = "login-button" nz-button nzType="primary" (click)="onSubmit()" routerLink="home">Register</button>
+        <button class = "register-button" nz-button nzType="primary" (click)="onSubmit()" routerLink="home">Register</button>
+        <p>Already have an account? <a [routerLink]="['/login']">Log in here</a>.</p>
+        <br>
         <p class = "error-text">{{error}}</p>
     </div>
 </div>

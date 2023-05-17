@@ -7,10 +7,11 @@
 }
 
 .login-card{
-    height: 500px;
+    height: fit-content;
     width: 350px;
     margin-top: 80px;
     background-color: #000;
+    color: white;
     border-style: solid;
     border-color: #363636;
     border-width: 1px;
@@ -28,7 +29,6 @@
 }
 
 .error-text{
-    color: white;
     margin-top: 20px;
     padding-left: 10px;
     padding-right: 10px;
@@ -48,4 +48,13 @@
     margin-top: 5px;
     margin-bottom: 5px;
     width: 300px;
+}
+.checkbox-field{
+    margin-bottom: 5px;
+    width: 300px;
+
+    label {
+        width: 100%;
+        color: white;
+    }
 }

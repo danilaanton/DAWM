@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable, catchError } from 'rxjs';
+import { Observable } from 'rxjs';
 import { ImageMetadata } from '../models/image-metadata.interface';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { switchMap } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { ImageData } from '../models/image-data';
 
   

@@ -2,23 +2,27 @@
     <div class = "login-card">
         <img class = "unitbv-logo" src="https://www.unitbv.ro/images/Logo-UT-s.png">
         <form nz-form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <div class="input-field-container">
-            <nz-form-item>
-                <nz-form-control nzErrorTip="Please input a valid email.">
-                    <input id = "email" formControlName="email" class = "input-field" nz-input placeholder="Email"/>
-                </nz-form-control>
-            </nz-form-item>
-            <nz-form-item>
-                <nz-form-control nzErrorTip="Please input your password.">
-                    <input id = "password" formControlName="password" class = "input-field" type="password" nz-input placeholder="Password"/>
-                </nz-form-control>
-            </nz-form-item>
-        </div>
+            <div class="input-field-container">
+                <nz-form-item>
+                    <nz-form-control nzErrorTip="Please input a valid email.">
+                        <input id = "email" formControlName="email" class = "input-field" nz-input placeholder="Email"/>
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-control nzErrorTip="Please input your password.">
+                        <input id = "password" formControlName="password" class = "input-field" type="password" nz-input placeholder="Password"/>
+                    </nz-form-control>
+                </nz-form-item>
+                <div class="checkbox-field">
+                    <label nz-checkbox formControlName="remember">
+                    <span>Remember me</span>
+                    </label>
+                </div>
+            </div>
         </form>
-
         <button class = "login-button" nz-button nzType="primary" (click)="onSubmit()">Log In</button>
+        <p>Don't have an account? <a [routerLink]="['/register']">Register now</a>.</p>
         <br>
-        <button class = "login-button" nz-button nzType="primary" (click)="onRegister()">Register</button>
         <p class = "error-text">{{error}}</p>
     </div>
 </div>

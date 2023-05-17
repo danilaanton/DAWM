@@ -8,9 +8,12 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
   createUserWithEmailAndPassword,
+  setPersistence,
+  browserLocalPersistence,
+  browserSessionPersistence
 } from 'firebase/auth';
 import { environment } from 'src/environments/environment';
-import { Console } from 'console';
+import { Subject } from 'rxjs';
 
 const auth = getAuth(firebase.initializeApp(environment.firebaseConfig));
 
@@ -18,10 +21,17 @@ const auth = getAuth(firebase.initializeApp(environment.firebaseConfig));
   providedIn: 'root',
 })
 export class UserAuthService {
-  currentUser?: User;
+  
+  private currentUser: User | undefined;
+  currentUserSubject = new Subject<User | undefined>();
 
   get user() {
     return this.currentUser;
+  }
+
+  set user(userToSet: any) {
+    this.currentUser = userToSet;
+    this.currentUserSubject.next(userToSet);
   }
 
   constructor(
@@ -32,20 +42,32 @@ export class UserAuthService {
       if (user) {
         localStorage.setItem('user', JSON.stringify(user.uid));
         this.userCrudService.getUser(user.uid).subscribe((result) => {
-          this.currentUser = result;
+        this.user = result;
         });
+        router.navigate(['home']);
       } else {
         localStorage.setItem('user', 'null');
-        this.currentUser = undefined;
+        this.user = undefined;
+        router.navigate(['']);
       }
     });
   }
 
-  SignIn(email: string, password: string): Promise<any> {
+  SignIn(email: string, password: string, remember: boolean): Promise<any> {
     return signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
         if (result.user) {
-          this.router.navigate(['home']);
+          if (remember) {
+            setPersistence(auth, browserLocalPersistence)
+              .catch((error) => {
+                console.log((error as any).message);
+              });
+          } else {
+            setPersistence(auth, browserSessionPersistence)
+              .catch((error) => {
+                console.log((error as any).message);
+              });
+          }
         }
       })
       .catch((error) => {
@@ -68,7 +90,7 @@ export class UserAuthService {
         const user: User = {
           avatarID: '',
           name: name,
-          email: result.user.email || ''
+          email: result.user.email || '',
         };
         return this.userCrudService.addUser(uid, user).subscribe(() => {
           this.router.navigate(['login']);
@@ -84,15 +106,9 @@ export class UserAuthService {
       });
   }
 
-  get isLoggedIn(): boolean {
-    const user = JSON.parse(localStorage.getItem('user')!);
-    return user !== null;
-  }
-
   SignOut() {
     return auth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['login']);
     });
   }
 }

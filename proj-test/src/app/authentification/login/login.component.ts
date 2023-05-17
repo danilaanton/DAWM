@@ -11,11 +11,11 @@ import { UserAuthService } from 'src/app/user/services/user-auth.service';
 export class LoginComponent {
   loginForm!: FormGroup;
   error: string = '';
+  checked = false;
 
   constructor(
     private userAuthService: UserAuthService,
-    private fb: FormBuilder,
-    private router: Router
+    private fb: FormBuilder
   ) {}
 
   ngOnInit(): void {
@@ -31,6 +31,7 @@ export class LoginComponent {
     this.loginForm = this.fb.group({
       email: ['', [Validators.email, Validators.required]],
       password: ['', Validators.required],
+      remember: [false],
     });
   }
 
@@ -38,8 +39,9 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       const email = this.loginForm.value.email;
       const password = this.loginForm.value.password;
+      const remember = this.loginForm.value.remember;
       this.userAuthService
-        .SignIn(email, password)
+        .SignIn(email, password, remember)
         .then((result) => {
           console.log(result);
         })
@@ -47,9 +49,5 @@ export class LoginComponent {
           console.log(error);
         });
     }
-  }
-
-  onRegister() {
-    this.router.navigate(['register']);
   }
 }
