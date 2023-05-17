@@ -29,13 +29,15 @@ export class HomeComponent {
       if(!res){
         this.canLoadMore = false;
       }else{
+        let allMetadata : ImageMetadata[] = [];
         for(let id in res){
-          console.log(localStorage.getItem('user') as string);
-          console.log(res[id].author);
-          this.userService.isFollowing(localStorage.getItem('user') as string, res[id].author as string).subscribe(confirm => {
-            console.log(confirm);
+          allMetadata.push(res[id] as ImageMetadata)
+        }
+        allMetadata.sort((a : any, b : any) => new Date(b.dateCreated).getTime() - new Date(a.dateCreated).getTime());
+        for(let oneMetadata of allMetadata){
+          this.userService.isFollowing(localStorage.getItem('user') as string, oneMetadata.author as string).subscribe(confirm => {
             if(confirm){
-              this.imageMetadata.push(res[id] as ImageMetadata);
+              this.imageMetadata.push(oneMetadata as ImageMetadata);
               if(this.imageMetadata.length == 1){
                 this.loadBatch();
               }else{
