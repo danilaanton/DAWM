@@ -8,7 +8,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { SearchModule } from '../search/search.module';
 import { FriendListComponent } from './friend-list/friend-list.component';
 import { UploadModule } from '../upload/upload.module';
-import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NzModalModule, NzModalService } from 'ng-zorro-antd/modal';
 
 @NgModule({
   declarations: [

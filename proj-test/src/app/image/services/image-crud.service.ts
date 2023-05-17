@@ -29,8 +29,8 @@ export class ImageCrudService {
     return this.http.get<ImageMetadata>(`${this.apiUrl}/${id}.json`);
   }
 
-  getAll(): Observable<ImageMetadata> {
-    return this.http.get<ImageMetadata>(`${this.apiUrl}.json`);
+  getAll(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/metadata.json`);
   }
 
   deleteImage(id: string): Observable<any> {

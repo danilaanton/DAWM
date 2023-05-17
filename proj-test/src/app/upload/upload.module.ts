@@ -4,6 +4,7 @@ import { UploadComponent } from './upload/upload.component';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { FormsModule } from '@angular/forms';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzModalModule } from 'ng-zorro-antd/modal';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
     CommonModule,
     NzInputModule,
     FormsModule,
-    NzButtonModule
+    NzButtonModule,
+    NzModalModule
   ],
   exports: [
     UploadComponent

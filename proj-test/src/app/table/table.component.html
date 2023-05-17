@@ -1,4 +1,4 @@
-<nz-table style="background-color: black;" #basicTable [nzData]="images">
+<nz-table #basicTable [nzData]="images">
     <thead>
       <tr class="header-container">
         <th>Photo Preview</th>
@@ -12,11 +12,11 @@
     </thead>
     <tbody>
       <tr *ngFor="let data of basicTable.data">
-        <td>meow</td>
-        <td>meow</td>
-        <td>meow</td>
-        <td>meow</td>
-        <td>meow</td>
+        <td><img [src]="data.base64Data" style="height: 50px;"></td>
+        <td><p [textContent]="data.description"></p></td>
+        <td [textContent]="data.dateCreated"></td>
+        <td [textContent]="data.likes"></td>
+        <td [textContent]="data.downloads"></td>
         <td>
             <button nz-button nzType="primary">Edit</button>
         </td>
