@@ -4,7 +4,7 @@
     </div>
     <div style="margin-top: 20px;">
         <div *ngFor="let result of results">
-            <app-result [photo]="result.avatarID || 'none'" [name]="result.name" [userID]="result.id"></app-result>
+            <app-result [photo]="result.photo|| 'none'" [name]="result.name" [userID]="result.id"></app-result>
         </div>
     </div>
 </div>

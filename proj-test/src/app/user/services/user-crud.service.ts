@@ -38,6 +38,6 @@ export class UserCrudService {
   }
   setProfilePicture(userID : string, photoID : string){
     console.log(photoID);
-    return this.http.patch(`${this.apiUrl}/users/${userID}.json`, {userID : photoID});
+    return this.http.patch(`${this.apiUrl}/users/${userID}.json`, {avatarID : photoID});
   }
 }
