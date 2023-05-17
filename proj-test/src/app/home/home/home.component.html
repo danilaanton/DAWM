@@ -9,7 +9,7 @@
         <app-upload></app-upload>
     </div>
     <div *ngFor="let post of loadedImages">
-        <app-post [base64data]="post.base64Data" [username]="post.username || 'loading...'" [description]="post.description" [profilePhoto]="post.profilePhoto || 'none'"></app-post>
+        <app-post [id]="post.id || 'none'" [base64data]="post.base64Data" [username]="post.username || 'loading...'" [description]="post.description" [profilePhoto]="post.profilePhoto || 'none'"></app-post>
     </div>
     <div *ngIf="canLoadMore" class="loading-wheel" [ngClass]="{'shifted-right-wheel' : atLeftMargin}"></div>
     <p *ngIf="!canLoadMore" class="seen-all-message" [ngClass]="{'shifted-right-text' : atLeftMargin}">You've seen it All (✓)</p>

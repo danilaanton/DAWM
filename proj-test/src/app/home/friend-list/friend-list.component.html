@@ -2,7 +2,7 @@
     Your Follows
     <hr>
     <div *ngIf="follows.length > 0">
-        <div *ngFor="let follow of follows; let i = index">
+        <div *ngFor="let follow of follows; let i = index" style="overflow-y: scroll;">
             <div class="follow-container" (click)="filterByUser(i)">
                 <img class="profile-picture" [src]="follow.photo!='none'? follow.photo : 'https://isobarscience-1bfd8.kxcdn.com/wp-content/uploads/2020/09/default-profile-picture1.jpg'">
                 <div class="username" [textContent]="follow.username"></div>

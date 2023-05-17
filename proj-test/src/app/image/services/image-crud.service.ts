@@ -44,4 +44,13 @@ export class ImageCrudService {
   getData(id : string){
     return this.http.get<ImageData>(`${this.apiUrl}/data/${id}.json`);
   }
+  likePhoto(likerId : string, photoId : string){
+    return this.http.post(`${this.apiUrl}/data/${photoId}/likes/${likerId}.json`, true);
+  }
+  dislikePhoto(likerId : string, photoId : string){
+    return this.http.delete(`${this.apiUrl}/data/${photoId}/likes/${likerId}.json`);
+  }
+  getLikes(photoId : string){
+    return this.http.get(`${this.apiUrl}/data/${photoId}/likes.json`);
+  }
 }
