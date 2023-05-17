@@ -4,6 +4,7 @@ import { ImageCrudService } from 'src/app/image/services/image-crud.service';
 import { ImageMetadata } from 'src/app/image/models/image-metadata.interface';
 import { ImageData } from 'src/app/image/models/image-data';
 import { UserCrudService } from 'src/app/user/services/user-crud.service';
+import { UserAuthService } from 'src/app/user/services/user-auth.service';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +21,9 @@ export class HomeComponent {
   loadedImages : ImageData[] = [];
   containerElement : any = null;
 
-  constructor(private stylingService : StylingService, private imageCrud : ImageCrudService, private userService : UserCrudService){ }
+  constructor(private stylingService : StylingService, private imageCrud : ImageCrudService, private userService : UserCrudService, private userAuthService : UserAuthService){
+    this.userAuthService.currentUserSubject.subscribe();
+   }
 
   @ViewChild('containerRef', { static: true }) containerRef!: ElementRef;
   ngAfterViewInit(){
