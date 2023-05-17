@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-sidenav',
@@ -7,7 +7,16 @@ import { Component } from '@angular/core';
 })
 export class SidenavComponent {
   searchVisible : boolean = false;
+  @Output() openPost = new EventEmitter();
   expandSearch(){
     this.searchVisible = !this.searchVisible;
+  }
+  goToPost(){
+    const scrollToOptions: ScrollToOptions = {
+      top: 0,
+      behavior: 'smooth',
+    };
+    this.openPost.emit();
+    window.scrollTo(scrollToOptions);
   }
 }

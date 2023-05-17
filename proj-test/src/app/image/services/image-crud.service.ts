@@ -53,4 +53,16 @@ export class ImageCrudService {
   getLikes(photoId : string){
     return this.http.get(`${this.apiUrl}/data/${photoId}/likes.json`);
   }
+  getDownloads(photoId : string){
+    return this.http.get(`${this.apiUrl}/data/${photoId}/downloads.json`);
+  }
+
+  addDownload(photoId : string){
+    this.getDownloads(photoId).subscribe( nr => {
+      console.log(nr);
+      return this.http.put(`${this.apiUrl}/data/${photoId}/downloads.json`, (nr as number) + 1).subscribe(confirm => {
+        console.log(confirm);
+      });
+    })
+  }
 }

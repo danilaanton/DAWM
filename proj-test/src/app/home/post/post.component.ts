@@ -55,4 +55,7 @@ export class PostComponent {
     }
     this.liked = !this.liked;
   }
+  download(){
+    this.imageService.addDownload(this.id);
+  }
 }

@@ -9,6 +9,5 @@
     </div>    
     <input class="description" nz-input placeholder="Basic usage" [(ngModel)]="description" />
     <button [disabled]="droppedImage == null" class="upload-button" nz-button nzType="primary" (click)="handleSubmit()">Submit</button>
-    <button class="cancel-button" nz-button nzType="primary" (click)="handleCancel()">Cancel</button>
     <button *ngIf="droppedImage" class="cancel-button" nz-button nzType="primary" (click)="handleChange()">Change</button>
 </div>

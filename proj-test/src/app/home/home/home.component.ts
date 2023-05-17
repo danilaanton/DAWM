@@ -65,7 +65,7 @@ export class HomeComponent {
   loadBatch(){
     let targetIndex = this.loadedImages.length + 2;
     for(let i=this.loadedImages.length; i<Math.min(this.shownMetadata.length, targetIndex); i++){
-      this.loadedImages.push({ base64Data : 'none', description : '', username : 'loading', id : this.shownMetadata[i].dataID});
+      this.loadedImages.push({ base64Data : 'none', description : '', username : 'loading', id : this.shownMetadata[i].dataID, downloads : 0});
       this.imageCrud.getData(this.shownMetadata[i].dataID).subscribe(res =>{
           this.loadedImages[i].base64Data = res.base64Data;
           this.loadedImages[i].description = res.description;
@@ -100,6 +100,12 @@ export class HomeComponent {
     this.canLoadMore = true;
     console.log(event);
     this.shownMetadata = this.imageMetadata.filter(image => image.author === '"' + event + '"');
+    this.shownMetadata.sort((a : any, b : any) => new Date(b.dateCreated).getTime() - new Date(a.dateCreated).getTime());
     this.loadBatch();
+  }
+
+  openPost(event : any){
+    console.log('sholdve');
+    this.uploadOpen = true;
   }
 }
