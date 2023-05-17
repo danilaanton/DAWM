@@ -36,4 +36,8 @@ export class UserCrudService {
   getAllUsers(){
     return this.http.get<User[]>(`${this.apiUrl}/users.json`);
   }
+  setProfilePicture(userID : string, photoID : string){
+    console.log(photoID);
+    return this.http.patch(`${this.apiUrl}/users/${userID}.json`, {userID : photoID});
+  }
 }

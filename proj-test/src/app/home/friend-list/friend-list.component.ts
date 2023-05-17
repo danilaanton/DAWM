@@ -18,12 +18,9 @@ export class FriendListComponent {
             let user = {username : res[id].name, photo : 'none', id : id};
             this.follows.push(user);
             let index = this.follows.length - 1;
-            console.log()
-            this.imageService.getImage('"' + res[id].avatarID + '"' || 'none').subscribe(metadata =>{
-              if(metadata){
-                this.imageService.getData('"' + metadata.dataID + '"').subscribe(data =>{
+            this.imageService.getData(res[id].avatarID || 'none').subscribe(data =>{
+              if(data){
                   this.follows[index].photo = data.base64Data;
-                })
               }
             })
           }

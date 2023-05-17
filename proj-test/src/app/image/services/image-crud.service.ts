@@ -25,8 +25,10 @@ export class ImageCrudService {
     return this.http.post<ImageMetadata>(`${this.apiUrl}/data.json`, imageData);
   }
 
-  getImage(id: string): Observable<ImageMetadata> {
-    return this.http.get<ImageMetadata>(`${this.apiUrl}/${id}.json`);
+  getImageMetadata(id: string): Observable<ImageMetadata> {
+    if(id == '') id = 'none';
+    console.log(id);
+    return this.http.get<ImageMetadata>(`${this.apiUrl}/metadata/${id}.json`);
   }
 
   getAll(): Observable<any> {

@@ -75,13 +75,10 @@ export class HomeComponent {
       });
       this.userService.getUser(this.shownMetadata[i].author.substring(1, this.shownMetadata[i].author.length - 1)).subscribe(res =>{
         this.loadedImages[i].username = res.name;
-        this.imageCrud.getImage(res.avatarID).subscribe(metadata => {
-          if(metadata){
-            this.imageCrud.getData(metadata.dataID).subscribe(data => {
+        this.imageCrud.getData(res.avatarID).subscribe(data => {
               this.loadedImages[i].profilePhoto = data.base64Data;
-            })
           }
-        })
+        )
       })
     }
     if(this.loadedImages.length == this.shownMetadata.length){

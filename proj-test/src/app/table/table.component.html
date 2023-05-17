@@ -11,7 +11,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let data of basicTable.data">
+      <tr *ngFor="let data of basicTable.data; let i = index">
         <td><img [src]="data.base64Data" style="height: 50px;"></td>
         <td><p [textContent]="data.description"></p></td>
         <td [textContent]="data.dateCreated"></td>
@@ -21,7 +21,7 @@
             <button nz-button nzType="primary">Edit</button>
         </td>
         <td>
-            <button nz-button nzType="primary">Set</button>
+            <button nz-button nzType="primary" (click)="setProfilePicture(i)">Set</button>
         </td>
       </tr>
     </tbody>
