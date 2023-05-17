@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ImageCrudService } from 'src/app/image/services/image-crud.service';
 import { UserCrudService } from 'src/app/user/services/user-crud.service';
 
@@ -9,6 +9,7 @@ import { UserCrudService } from 'src/app/user/services/user-crud.service';
 })
 export class FriendListComponent {
   follows : any = [];
+  @Output() myEvent = new EventEmitter<string>();
   constructor(private userService : UserCrudService, private imageService : ImageCrudService){
     this.userService.getAllUsers().subscribe(res => {
       for(let id in res){
@@ -29,5 +30,9 @@ export class FriendListComponent {
         })
       }
     })
+  }
+
+  filterByUser(index : number){
+    this.myEvent.emit(this.follows[index].id);
   }
 }

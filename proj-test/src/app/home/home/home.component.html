@@ -1,5 +1,5 @@
 <app-sidenav></app-sidenav>
-<app-friend-list *ngIf="!atLeftMargin"></app-friend-list>
+<app-friend-list *ngIf="!atLeftMargin" (myEvent)="handleFilter($event)"></app-friend-list>
 <div class="post-container" #containerRef>
     <div *ngIf="!uploadOpen" class="post-box-unexpanded">
         <p>Amaze the world with a new photo!</p>

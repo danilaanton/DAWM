@@ -16,6 +16,7 @@ export class HomeComponent {
   uploadOpen : boolean = false;
   canLoadMore : boolean = false;
   imageMetadata : ImageMetadata[] = [];
+  shownMetadata : ImageMetadata[] = [];
   loadedImages : ImageData[] = [];
   containerElement : any = null;
 
@@ -38,6 +39,7 @@ export class HomeComponent {
           this.userService.isFollowing(localStorage.getItem('user') as string, oneMetadata.author as string).subscribe(confirm => {
             if(confirm){
               this.imageMetadata.push(oneMetadata as ImageMetadata);
+              this.shownMetadata.push(oneMetadata as ImageMetadata);
               if(this.imageMetadata.length == 1){
                 this.loadBatch();
               }else{
@@ -84,11 +86,17 @@ export class HomeComponent {
   }
 
   @HostListener('window:scroll', ['$event'])
-onScroll(event: Event) {
+  onScroll(event: Event) {
     let pos = (document.documentElement.scrollTop || document.body.scrollTop) + document.documentElement.offsetHeight;
     let max = document.documentElement.scrollHeight;
    if(pos > max - 30)   {
     this.loadBatch();
    }
+  }
+
+  handleFilter(event: string) {
+    this.loadedImages = [];
+    this.shownMetadata = this.imageMetadata.filter(image => image.author === event);
+    this.loadBatch();
   }
 }
