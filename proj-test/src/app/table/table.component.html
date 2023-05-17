@@ -1,0 +1,28 @@
+<nz-table style="background-color: black;" #basicTable [nzData]="images">
+    <thead>
+      <tr class="header-container">
+        <th>Photo Preview</th>
+        <th>Photo Description</th>
+        <th>Time of upload</th>
+        <th>Likes</th>
+        <th>Downloads</th>
+        <th>Edit Details</th>
+        <th>Set as profile</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td>meow</td>
+        <td>meow</td>
+        <td>meow</td>
+        <td>meow</td>
+        <td>meow</td>
+        <td>
+            <button nz-button nzType="primary">Edit</button>
+        </td>
+        <td>
+            <button nz-button nzType="primary">Set</button>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>

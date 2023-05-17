@@ -14,13 +14,16 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NzButtonModule } from 'ng-zorro-antd/button'; 
 import { HomeModule } from './home/home.module';
+import { TableComponent } from './table/table.component';
+import { NzTableModule } from 'ng-zorro-antd/table';
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
     AppComponent,
-    FooterComponent
+    FooterComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +34,7 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     NzButtonModule,
     HomeModule,
+    NzTableModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US }

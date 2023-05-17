@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidenav',
@@ -7,6 +8,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 })
 export class SidenavComponent {
   searchVisible : boolean = false;
+  constructor(private router : Router){}
   @Output() openPost = new EventEmitter();
   expandSearch(){
     this.searchVisible = !this.searchVisible;
@@ -18,5 +20,9 @@ export class SidenavComponent {
     };
     this.openPost.emit();
     window.scrollTo(scrollToOptions);
+  }
+  goToTable(){
+    console.log('my god');
+    this.router.navigate(['myposts']);
   }
 }
