@@ -27,8 +27,14 @@
         <nz-modal [(nzVisible)]="modalVisible" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" [nzWrapClassName]="'custom-modal'" [nzFooter]="null">
             <div class="modal">
                 <ng-container *nzModalContent>
-                    <p>These people appreciated this post</p>
+                    <p style="color: #1890ff;">These people appreciated this post</p>
                     <hr style="color: #363636; width: 400px;">
+                    <div style="height: 100%; overflow-y: scroll;">
+                        <div *ngFor="let liker of likers">
+                            <p [textContent]="liker">
+                            <hr style="color: #363636; width: 400px;">
+                        </div>
+                    </div>
                 </ng-container>
             </div>
         </nz-modal>

@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ImageCrudService } from 'src/app/image/services/image-crud.service';
+import { UserCrudService } from 'src/app/user/services/user-crud.service';
 
 @Component({
   selector: 'app-post',
@@ -15,13 +16,24 @@ export class PostComponent {
   @Input() liked : boolean = false;
   @Input() id : string = '';
   likes : number = 0;
-  constructor(private imageService : ImageCrudService){
+  likers : string[] = [];
+  constructor(private imageService : ImageCrudService, private userService : UserCrudService){
     
   }
   ngOnInit(){
     console.log(this.id);
-    this.imageService.getLikes(this.id).subscribe(res => {
-      console.log(res);
+    this.imageService.getLikes(this.id).subscribe(likes => {
+      if(likes){
+        for(let id in likes){ 
+          this.likes++;
+          if(id == (localStorage.getItem('user') as string)){
+            this.liked = true;
+          }
+          this.userService.getUser(id.substring(1, id.length - 1)).subscribe(user => {
+            this.likers.push(user.name);
+          })
+        }
+      }
     })
   }
   showLikers(){
