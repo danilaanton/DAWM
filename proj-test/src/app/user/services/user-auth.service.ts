@@ -93,7 +93,10 @@ export class UserAuthService {
           email: result.user.email || '',
         };
         return this.userCrudService.addUser(uid, user).subscribe(() => {
-          this.router.navigate(['login']);
+          setPersistence(auth, browserSessionPersistence)
+              .catch((error) => {
+                console.log((error as any).message);
+              });
         });
       })
       .catch((error) => {

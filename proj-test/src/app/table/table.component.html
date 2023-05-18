@@ -29,16 +29,13 @@
       </tr>
     </tbody>
   </nz-table>
-<nz-modal [(nzVisible)]="modalVisible" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" [nzWrapClassName]="'custom-modal'">
-    <div class="modal">
-        <ng-container *nzModalContent>
-          <p>Edit post</p>
-          <div class="vertical-input">
-            <input nz-input [(ngModel)]="photoData" placeholder="Change post image URL">
-            <textarea nz-input [(ngModel)]="photoDescription" placeholder="Change post description"></textarea>
-          </div>
-        </ng-container>
+<nz-modal [(nzVisible)]="modalVisible" nzTitle="Edit post" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" [nzWrapClassName]="'custom-modal'">
+  <ng-container *nzModalContent>
+    <div class="vertical-input">
+      <input nz-input [(ngModel)]="photoData" placeholder="Change post image URL">
+      <textarea nz-input [(ngModel)]="photoDescription" placeholder="Change post description"></textarea>
     </div>
+  </ng-container>
 </nz-modal>
 <div class="sort-by">
   <input style="margin: 5px;" nz-input placeholder="Search" [(ngModel)]="searchTerm" (ngModelChange)="search()"/>
