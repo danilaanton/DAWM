@@ -35,8 +35,14 @@ export class ImageCrudService {
     return this.http.get(`${this.apiUrl}/metadata.json`);
   }
 
-  deleteImage(id: string): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/${id}.json`);
+  deleteImage(metaid: string){
+    this.http.get(`${this.apiUrl}/metadata/${metaid}.json`).subscribe(metadata =>{
+      this.http.delete(`${this.apiUrl}/data/${(metadata as ImageMetadata).dataID}.json`).subscribe(_ =>{
+        this.http.delete(`${this.apiUrl}/metadata/${metaid}.json`).subscribe(_ => {
+          window.location.reload();
+        })
+      });
+    })
   }
 
   editImage(id: string, changes: Partial<ImageMetadata>): Observable<any> {

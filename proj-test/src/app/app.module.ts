@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -15,6 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NzButtonModule } from 'ng-zorro-antd/button'; 
 import { TableComponent } from './table/table.component';
 import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzModalModule } from 'ng-zorro-antd/modal';
+import { UploadModule } from './upload/upload.module';
 
 registerLocaleData(en);
 
@@ -32,7 +33,9 @@ registerLocaleData(en);
     FormsModule,
     BrowserAnimationsModule,
     NzButtonModule,
-    NzTableModule
+    NzTableModule,
+    NzModalModule,
+    UploadModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US }

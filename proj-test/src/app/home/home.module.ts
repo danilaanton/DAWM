@@ -24,6 +24,9 @@ import { NzModalModule, NzModalService } from 'ng-zorro-antd/modal';
     SearchModule,
     UploadModule,
     NzModalModule
+  ],
+  providers: [
+    NzModalService
   ]
 })
 export class HomeModule { }

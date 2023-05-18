@@ -1,4 +1,4 @@
-<nz-table #basicTable [nzData]="images">
+<nz-table #basicTable [nzPageSize]="5" [nzData]="images">
     <thead>
       <tr class="header-container">
         <th>Photo Preview</th>
@@ -8,6 +8,7 @@
         <th>Downloads</th>
         <th>Edit Details</th>
         <th>Set as profile</th>
+        <th>Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -18,11 +19,29 @@
         <td [textContent]="data.likes"></td>
         <td [textContent]="data.downloads"></td>
         <td>
-            <button nz-button nzType="primary">Edit</button>
+            <button (click)="showEdit()" nz-button nzType="primary">Edit</button>
         </td>
         <td>
             <button nz-button nzType="primary" (click)="setProfilePicture(i)">Set</button>
         </td>
+        <td>
+          <button style="background-color: rgb(193, 52, 52);" nz-button nzType="primary" (click)="deletePhoto(i)">Delete</button>
+      </td>
       </tr>
     </tbody>
   </nz-table>
+<nz-modal [(nzVisible)]="modalVisible" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" [nzWrapClassName]="'custom-modal'" [nzFooter]="null">
+    <div class="modal">
+        <ng-container *nzModalContent>
+        </ng-container>
+    </div>
+</nz-modal>
+<div class="sort-by">
+  <input style="margin: 5px;" nz-input placeholder="Search" [(ngModel)]="searchTerm" (ngModelChange)="search()"/>
+  <select class="input" (change)="onDropdownChange($event.target)">
+    <option value="description">Descripion</option>
+    <option value="dateCreated">Date of upload</option>
+    <option value="likes">Likes</option>
+    <option value="downloads">Downloads</option>
+  </select>
+</div>
