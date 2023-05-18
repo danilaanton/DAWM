@@ -15,7 +15,6 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { TableComponent } from './table/table.component';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzModalModule } from 'ng-zorro-antd/modal';
-import { UploadModule } from './upload/upload.module';
 
 registerLocaleData(en);
 
@@ -34,11 +33,10 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     NzButtonModule,
     NzTableModule,
-    NzModalModule,
-    UploadModule
+    NzModalModule
   ],
   providers: [
-    { provide: NZ_I18N, useValue: en_US }
+    { provide: NZ_I18N, useValue: en_US },
   ],
   bootstrap: [AppComponent]
 })
