@@ -2,10 +2,9 @@
     <thead>
       <tr class="header-container">
         <th>Photo Preview</th>
-        <th>Photo Description</th>
-        <th>Time of upload</th>
-        <th>Likes</th>
-        <th>Downloads</th>
+        <th *ngFor="let column of listOfColumn" [nzSortFn]="column.compare" [nzSortPriority]="column.priority">
+          {{ column.title }}
+        </th>
         <th>Edit Details</th>
         <th>Set as profile</th>
         <th>Delete</th>
@@ -38,10 +37,4 @@
 </nz-modal>
 <div class="sort-by">
   <input style="margin: 5px;" nz-input placeholder="Search" [(ngModel)]="searchTerm" (ngModelChange)="search()"/>
-  <select class="input" (change)="onDropdownChange($event.target)">
-    <option value="description">Descripion</option>
-    <option value="dateCreated">Date of upload</option>
-    <option value="likes">Likes</option>
-    <option value="downloads">Downloads</option>
-  </select>
 </div>
