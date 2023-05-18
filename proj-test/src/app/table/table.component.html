@@ -18,7 +18,7 @@
         <td [textContent]="data.likes"></td>
         <td [textContent]="data.downloads"></td>
         <td>
-            <button (click)="showEdit()" nz-button nzType="primary">Edit</button>
+            <button (click)="showEdit(i)" nz-button nzType="primary">Edit</button>
         </td>
         <td>
             <button nz-button nzType="primary" (click)="setProfilePicture(i)">Set</button>
@@ -29,9 +29,14 @@
       </tr>
     </tbody>
   </nz-table>
-<nz-modal [(nzVisible)]="modalVisible" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" [nzWrapClassName]="'custom-modal'" [nzFooter]="null">
+<nz-modal [(nzVisible)]="modalVisible" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" [nzWrapClassName]="'custom-modal'">
     <div class="modal">
         <ng-container *nzModalContent>
+          <p>Edit post</p>
+          <div class="vertical-input">
+            <input nz-input [(ngModel)]="photoData" placeholder="Change post image URL">
+            <textarea nz-input [(ngModel)]="photoDescription" placeholder="Change post description"></textarea>
+          </div>
         </ng-container>
     </div>
 </nz-modal>

@@ -6,5 +6,6 @@ export interface ImageData {
     username? : string,
     profilePhoto? : string,
     id? : string
+    dataID? : string,
     dateCreated? : string
 }

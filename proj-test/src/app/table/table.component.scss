@@ -5,3 +5,15 @@
     justify-content: baseline;
     width: 100%;
 }
+
+.vertical-input {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    input, textarea{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+  }
+  
